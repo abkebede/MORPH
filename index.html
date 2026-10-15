@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="MORPH — Materials-Oriented Robotic Physics Helper: a scientific computing framework for reproducible physics and materials research.">
+  <title>MORPH | Physics & Materials Scientific Computing</title>
+  <link rel="stylesheet" href="css/morph.css">
+  <script>
+    window.MathJax = {tex:{inlineMath:[['$','$'],['\\(','\\)']]}};
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+<nav>
+  <div class="wrap">
+    <div class="brand">MORPH</div>
+    <div class="links">
+      <a href="#about">About</a><a href="#capabilities">Capabilities</a>
+      <a href="#xray">MORPH-XRAY</a><a href="#example">Example</a>
+      <a href="#docs">Documentation</a>
+    </div>
+  </div>
+</nav>
+
+<header>
+  <div class="wrap hero">
+    <div class="eyebrow">Scientific Computing • Materials Physics • Spectroscopy</div>
+    <h1>MORPH</h1>
+    <div class="tag"><strong>Materials-Oriented Robotic Physics Helper</strong></div>
+    <p class="lead">A scientific framework for transforming physical models, simulation outputs, and experimental data into reproducible, interpretable physical insight.</p>
+    <div class="flow">Model → Compute → Analyze → Validate → Understand</div>
+    <a class="btn" href="#capabilities">Explore MORPH</a>
+    <a class="btn secondary" href="README.md">Repository README</a>
+  </div>
+</header>
+
+<main>
+<section id="about">
+  <div class="wrap">
+    <h2>What is MORPH?</h2>
+    <p>MORPH is being developed as a modular computational environment for physics and materials research. It connects scientific inputs to physics-based models, computation, quantitative analysis, validation, visualization, and documented scientific interpretation.</p>
+    <p><strong>Robotic</strong> refers to workflow automation—not physical robotics. Repetitive computational operations can be automated while the assumptions, equations, parameters, provenance, and scientific decisions remain visible to the researcher.</p>
+    <figure>
+      <img src="images/MORPH_workflow.png" alt="MORPH scientific workflow">
+      <figcaption>MORPH scientific workflow: from scientific input to physical insight.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section id="capabilities" class="dark">
+  <div class="wrap">
+    <h2>Scientific capabilities</h2>
+    <div class="grid">
+      <div class="card"><h3>Simulation</h3><p>Structured workflows for physics engines such as FEFF, with traceable inputs, parameters, outputs, and software versions.</p></div>
+      <div class="card"><h3>Spectroscopy</h3><p>XPS, XAS, XANES and EXAFS processing, visualization, spectral interpretation, and scattering-path analysis.</p></div>
+      <div class="card"><h3>Data Science</h3><p>Multivariate analysis, PCA, model comparison, held-out validation, uncertainty and sensitivity analysis.</p></div>
+      <div class="card"><h3>Scientific Reporting</h3><p>Publication-quality figures, machine-readable outputs, parameter tables, provenance records, and reproducible documentation.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="xray">
+  <div class="wrap">
+    <h2>MORPH-XRAY</h2>
+    <p>The first specialized branch of MORPH focuses on X-ray spectroscopy and materials characterization. It is designed to connect spectral data and simulation outputs to physically meaningful observables while preserving the exact conventions of the source data.</p>
+    <div class="eq">\[
+      \mu(E)=\mu_0(E)\,[1+\chi(E)]
+    \]</div>
+    <p>This normalized relation is used only when the definition of $\chi$ in the source data supports it. MORPH treats headers, units, normalization conventions, and metadata as part of the scientific record.</p>
+    <figure>
+      <img src="images/MORPH_XAS_example.png" alt="Illustrative XAS analysis output">
+      <figcaption>Illustrative MORPH XAS/EXAFS output. This demonstration is not experimental data.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section id="example" class="dark">
+  <div class="wrap">
+    <h2>Example: TiO<sub>0.5</sub>N<sub>0.5</sub> + FEFF</h2>
+    <p>An early MORPH demonstration uses a 12-atom titanium oxynitride model and FEFF calculations across four absorption edges: O K, N K, Ti K, and Ti L.</p>
+    <div class="grid">
+      <div class="card"><h3>1. Atomic model</h3><p>Define absorber-centered structures and preserve the exact FEFF input.</p></div>
+      <div class="card"><h3>2. Spectral output</h3><p>Verify <code>xmu.dat</code>, <code>chi.dat</code>, path files, headers, and column definitions.</p></div>
+      <div class="card"><h3>3. EXAFS</h3><p>Analyze χ(k), documented k-weighting and window functions, and Fourier-space structure.</p></div>
+      <div class="card"><h3>4. Interpretation</h3><p>Compare R-space features with calculated scattering paths; account for phase shifts before assigning bond distances.</p></div>
+    </div>
+    <div class="eq">\[
+    \chi(k)\sim\sum_j\frac{N_jS_0^2F_j(k)}{kR_j^2}
+    e^{-2R_j/\lambda(k)}e^{-2\sigma_j^2k^2}
+    \sin\!\left[2kR_j+\delta_j(k)\right]
+    \]</div>
+  </div>
+</section>
+
+<section id="docs">
+  <div class="wrap">
+    <h2>Documentation & reproducibility</h2>
+    <p>MORPH follows a physics-first principle: every numerical operation should have a stated physical or statistical meaning. Raw inputs are preserved, file semantics are verified before analysis, processing parameters are recorded, and automated results remain subject to scientific validation.</p>
+    <div class="grid">
+      <div class="card"><h3>Scientific Scope</h3><p>Architecture, equations, scientific domains, validation philosophy, and expansion path.</p><a href="docs/SCIENTIFIC_SCOPE.md">Open document →</a></div>
+      <div class="card"><h3>Workflow</h3><p>A reproducibility protocol from defining the scientific question through processing, validation, export, and archival.</p><a href="docs/WORKFLOW.md">Open document →</a></div>
+      <div class="card"><h3>TiON Example</h3><p>Recommended FEFF/XAS project structure and analysis sequence for the initial materials demonstration.</p><a href="examples/TiON_FEFF/README.md">Open example →</a></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <strong>MORPH — Materials-Oriented Robotic Physics Helper</strong><br>
+    <small>Research framework under active development • © <span id="year"></span> Abebe Kebede</small>
+  </div>
+</footer>
+<script src="js/morph.js"></script>
+</body>
+</html>

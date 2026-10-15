@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use MORPH in research, please cite the repository version used."
+title: "MORPH: Materials-Oriented Robotic Physics Helper"
+type: software
+authors:
+  - family-names: "Kebede"
+    given-names: "Abebe"
+version: "0.1.0-development"
+date-released: 2026-10-15
+# Add the final repository URL and DOI when assigned.
